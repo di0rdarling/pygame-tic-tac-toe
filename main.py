@@ -80,24 +80,24 @@ def main():
         return success
 
     def check_winner():
-        # Check to see if the game has been won.
+        # Check to see if valid series of plays have been played on the board.
         winner = ''
-        if grid_one.play is not None:
-            if(grid_one.play == grid_two.play) and (grid_one.play == grid_three.play):
+        if board[0].play is not None:
+            if(board[0].play == board[1].play) and (board[0].play == board[2].play):
                 winner = grid_one.play
-            elif grid_one.play is not None and (grid_one.play == grid_four.play) and (grid_one.play == grid_seven.play):
+            elif (board[0].play == board[3].play) and (board[0].play == board[6].play):
                 winner = grid_one.play
-            elif grid_one.play is not None and (grid_one.play == grid_five.play) and (grid_one.play == grid_nine.play):
+            elif (board[0].play == board[4].play) and (board[0].play == board[8].play):
                 winner = grid_one.play
-        elif grid_four.play is not None and (grid_four.play == grid_five.play) and (grid_four.play == grid_six.play):
+        elif board[3].play is not None and (board[3].play == board[4].play) and (board[3].play == board[5].play):
             winner = grid_four.play
-        elif grid_seven.play is not None and (grid_seven.play == grid_eight.play) and (grid_seven.play == grid_nine.play):
+        elif board[6].play is not None and (board[6].play == board[7].play) and (board[6].play == board[8].play):
             winner = grid_seven.play
-        elif grid_two.play is not None and (grid_two.play == grid_five.play) and (grid_two.play == grid_eight.play):
+        elif board[1].play is not None and (board[1].play == board[4].play) and (board[1].play == board[7].play):
             winner = grid_two.play
-        elif grid_three.play is not None and (grid_three.play == grid_five.play) and (grid_three.play == grid_seven.play):
+        elif board[2].play is not None and (board[2].play == board[4].play) and (board[2].play == board[6].play):
             winner = grid_three.play
-        elif grid_three.play is not None and (grid_three.play == grid_six.play) and (grid_three.play == grid_nine.play):
+        elif board[2].play is not None and (board[2].play == board[5].play) and (board[2].play == board[8].play):
             winner = grid_three.play
 
         return winner
@@ -119,7 +119,7 @@ def main():
         if winner is not '':
             textsurface = myfont.render(
                 winner + ' wins!', False, (255, 255, 255))
-            screen.blit(textsurface, (500, 100))
+            screen.blit(textsurface, (420, 70))
 
         pygame.display.flip()
 
